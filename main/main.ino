@@ -1,17 +1,17 @@
+#include "FreeRTOS.h"
 #include "ScopedLock.h"
-#include <Arduino_FreeRTOS.h>
 #include <queue.h>
 #include <task.h>
 
-#include <StandardCpp\StandardCplusplus.h>
-#include <StandardCpp\vector>
+#include <StandardCplusplus-master\StandardCplusplus.h>
+#include <StandardCplusplus-master\vector>
 
 #include "GlobalContext.h"
 
 // define two tasks for Blink & AnalogRead
 void MainThread(void* pvParameters);
 void SerialThread(void* pvParameters);
-void ReadAnalog(void);
+void ReadAnalog(GlobalContextPtr context);
 
 GlobalContextPtr GetGlobalContext(void* pvParameters);
 
@@ -109,6 +109,8 @@ void ReadAnalog(GlobalContextPtr context)
 void UIThread(void* pvParameters)
 {
     GlobalContextPtr context = GetGlobalContext(pvParameters);
+
+	context->GetCommunicationThreadDispatcher();
 
     for (;;)
     {

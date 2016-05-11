@@ -9,7 +9,7 @@
 	#include "WProgram.h"
 #endif
 
-#include <Arduino_FreeRTOS.h>
+#include "FreeRTOS.h"
 #include <semphr.h>
 
 class ScopedLock

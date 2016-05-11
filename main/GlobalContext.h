@@ -10,7 +10,7 @@
 #endif
 
 
-#include <Arduino_FreeRTOS.h>
+#include "FreeRTOS.h"
 #include <queue.h>
 #include <semphr.h>
 

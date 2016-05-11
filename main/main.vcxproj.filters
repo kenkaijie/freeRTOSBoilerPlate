@@ -30,6 +30,9 @@
     <ClInclude Include="ScopedLock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FreeRTOS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GlobalContext.cpp">
