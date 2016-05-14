@@ -66,9 +66,15 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <main.ino>
 #include <CommunicationThreadDispatcher.cpp>
 #include <CommunicationThreadDispatcher.h>
+#include <ErrorParser.cpp>
+#include <ErrorParser.h>
 #include <FreeRTOS.h>
 #include <GlobalContext.cpp>
 #include <GlobalContext.h>
 #include <IDispatcher.h>
+#include <IPacketProtocol.cpp>
+#include <IPacketProtocol.h>
+#include <PacketModule.cpp>
+#include <PacketModule.h>
 #include <ScopedLock.h>
 #endif

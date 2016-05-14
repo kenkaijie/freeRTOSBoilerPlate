@@ -1,3 +1,6 @@
+#include "ErrorParser.h"
+#include "IPacketProtocol.h"
+#include "PacketModule.h"
 #include "FreeRTOS.h"
 #include "ScopedLock.h"
 #include <queue.h>

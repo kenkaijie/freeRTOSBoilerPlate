@@ -77,15 +77,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationThreadDispatcher.h" />
+    <ClInclude Include="ErrorParser.h" />
     <ClInclude Include="FreeRTOS.h" />
     <ClInclude Include="GlobalContext.h" />
     <ClInclude Include="IDispatcher.h" />
+    <ClInclude Include="IPacketProtocol.h" />
+    <ClInclude Include="PacketModule.h" />
     <ClInclude Include="ScopedLock.h" />
     <ClInclude Include="__vm\.main.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommunicationThreadDispatcher.cpp" />
+    <ClCompile Include="ErrorParser.cpp" />
     <ClCompile Include="GlobalContext.cpp" />
+    <ClCompile Include="IPacketProtocol.cpp" />
+    <ClCompile Include="PacketModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

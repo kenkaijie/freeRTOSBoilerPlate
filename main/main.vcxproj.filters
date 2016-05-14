@@ -33,12 +33,30 @@
     <ClInclude Include="FreeRTOS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PacketModule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPacketProtocol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GlobalContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CommunicationThreadDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketModule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IPacketProtocol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
