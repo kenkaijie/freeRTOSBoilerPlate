@@ -9,13 +9,16 @@
 	#include "WProgram.h"
 #endif
 
-
-#include "FreeRTOS.h"
+#include "RTOSSetting.h"
 #include <queue.h>
 #include <semphr.h>
 
 #include "CommunicationThreadDispatcher.h"
 
+namespace Device
+{
+namespace System
+{
 /*! @brief GlobalContext handles the queueing
  */
 class GlobalContext
@@ -44,5 +47,7 @@ private:
 
 typedef GlobalContext* GlobalContextPtr;
 
+}
+}
 #endif
 

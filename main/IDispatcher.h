@@ -9,27 +9,31 @@
 	#include "WProgram.h"
 #endif
 
-class GlobalContext;
-
-typedef GlobalContext* GlobalContextPtr;
-
-struct QueuedFunction
+namespace Device
 {
-    void(*functionHandle)(GlobalContextPtr context);
-};
-
-typedef QueuedFunction* QueuedFunctionPtr;
-
-class IDispatcher
+namespace System
 {
+	class GlobalContext;
+
+	typedef GlobalContext* GlobalContextPtr;
+
+	struct QueuedFunction
+	{
+		void(*functionHandle)(GlobalContextPtr context);
+	};
+
+	typedef QueuedFunction* QueuedFunctionPtr;
+
+	class IDispatcher
+	{
 
 
-public:
-    virtual void Dispatch(QueuedFunctionPtr functionHandle) = 0;
-    virtual void Execute(void) = 0;
-};
+	public:
+		virtual void Dispatch(QueuedFunctionPtr functionHandle) = 0;
+		virtual void Execute(void) = 0;
+	};
 
-
-
+}
+}
 #endif
 

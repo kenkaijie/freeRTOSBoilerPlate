@@ -9,8 +9,13 @@
 	#include "WProgram.h"
 #endif
 
-#include "FreeRTOS.h"
+#include "RTOSSetting.h"
 #include <semphr.h>
+
+namespace Device
+{
+namespace Utils
+{
 
 class ScopedLock
 {
@@ -31,6 +36,7 @@ private:
     }
 };
 
-
+}
+}
 #endif
 

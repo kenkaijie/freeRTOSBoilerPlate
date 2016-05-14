@@ -1,29 +1,26 @@
-#include "ErrorParser.h"
-#include "IPacketProtocol.h"
-#include "PacketModule.h"
-#include "FreeRTOS.h"
-#include "ScopedLock.h"
+#include "GlobalContext.h"
+
+#include "RTOSSetting.h"
 #include <queue.h>
 #include <task.h>
 
-#include <StandardCplusplus-master\StandardCplusplus.h>
-#include <StandardCplusplus-master\vector>
+#include <StandardCplusplus.h>
 
-#include "GlobalContext.h"
+#include <vector>
 
 // define two tasks for Blink & AnalogRead
 void MainThread(void* pvParameters);
 void SerialThread(void* pvParameters);
-void ReadAnalog(GlobalContextPtr context);
+void ReadAnalog(Device::System::GlobalContextPtr context);
 
-GlobalContextPtr GetGlobalContext(void* pvParameters);
+Device::System::GlobalContextPtr GetGlobalContext(void* pvParameters);
 
 // the setup function runs once when you press reset or power the board
 void setup() {
 
     std::vector<uint8_t> vector;
 
-    GlobalContextPtr globalContext = new GlobalContext();
+	Device::System::GlobalContextPtr globalContext = new Device::System::GlobalContext();
 
     // Now set up two tasks to run independently.
     xTaskCreate(
@@ -67,12 +64,12 @@ void loop()
 void MainThread(void* pvParameters)  // This is a task.
 {
 
-    GlobalContextPtr context = GetGlobalContext(pvParameters);
+	Device::System::GlobalContextPtr context = GetGlobalContext(pvParameters);
 
     // initialize digital pin 13 as an output.
     pinMode(13, OUTPUT);
 
-    QueuedFunction queuedFuction;
+	Device::System::QueuedFunction queuedFuction;
 
     queuedFuction.functionHandle = &ReadAnalog;
 
@@ -90,7 +87,7 @@ void MainThread(void* pvParameters)  // This is a task.
 void SerialThread(void* pvParameters)  // This is a task.
 {
 
-    GlobalContextPtr context = GetGlobalContext(pvParameters);
+	Device::System::GlobalContextPtr context = GetGlobalContext(pvParameters);
 
     // initialize serial communication at 9600 bits per second:
     Serial.begin(9600);
@@ -101,7 +98,7 @@ void SerialThread(void* pvParameters)  // This is a task.
     }
 }
 
-void ReadAnalog(GlobalContextPtr context)
+void ReadAnalog(Device::System::GlobalContextPtr context)
 {
     Serial.print("Came here once on the ");
     Serial.print(pcTaskGetTaskName(NULL));
@@ -111,7 +108,7 @@ void ReadAnalog(GlobalContextPtr context)
 
 void UIThread(void* pvParameters)
 {
-    GlobalContextPtr context = GetGlobalContext(pvParameters);
+	Device::System::GlobalContextPtr context = GetGlobalContext(pvParameters);
 
 	context->GetCommunicationThreadDispatcher();
 
@@ -121,9 +118,9 @@ void UIThread(void* pvParameters)
     }
 }
 
-GlobalContextPtr GetGlobalContext(void * pvParameters)
+Device::System::GlobalContextPtr GetGlobalContext(void * pvParameters)
 {
     configASSERT(pvParameters != NULL);
 
-    return (GlobalContextPtr)pvParameters;
+    return (Device::System::GlobalContextPtr)pvParameters;
 }

@@ -13,7 +13,7 @@
 #define __AVR_ATmega2560__
 #define _VMDEBUG 1
 #define F_CPU 16000000L
-#define ARDUINO 10606
+#define ARDUINO 10608
 #define ARDUINO_AVR_MEGA2560
 #define ARDUINO_ARCH_AVR
 #define __cplusplus 201103L
@@ -64,17 +64,14 @@ extern "C" void __cxa_pure_virtual() {;}
 #define portInputRegister(P)
 #define portModeRegister(P)
 #include <main.ino>
-#include <CommunicationThreadDispatcher.cpp>
 #include <CommunicationThreadDispatcher.h>
-#include <ErrorParser.cpp>
-#include <ErrorParser.h>
-#include <FreeRTOS.h>
+#include <EventRaiser.cpp>
+#include <EventRaiser.h>
 #include <GlobalContext.cpp>
 #include <GlobalContext.h>
 #include <IDispatcher.h>
-#include <IPacketProtocol.cpp>
-#include <IPacketProtocol.h>
 #include <PacketModule.cpp>
 #include <PacketModule.h>
+#include <RTOSSetting.h>
 #include <ScopedLock.h>
 #endif

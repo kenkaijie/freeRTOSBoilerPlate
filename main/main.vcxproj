@@ -47,10 +47,10 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;C:\Users\kennethn\Source\Repos\freeRTOSBoilerPlate\main;C:\Users\kennethn\Documents\Arduino\libraries\FreeRTOS\src;C:\Users\kennethn\Documents\Arduino\libraries\FreeRTOS\src\utility;C:\Users\kennethn\Documents\Arduino\libraries\StandardCplusplus-master;C:\Users\kennethn\Documents\Arduino\libraries\StandardCplusplus-master\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\akl0nhei.bfj\Micro Platforms\default\debuggers;C:\Users\kennethn\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\tools\avr/avr/include/;C:\Program Files (x86)\Arduino\hardware\tools\avr//avr/include/avr/;C:\Program Files (x86)\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>C:\Users\kennethn\Source\Repos\freeRTOSBoilerPlate\main\__vm\.main.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino;C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega;c:\Users\ngkai\documents\visual studio 2015\Projects\Sketch2\main;C:\Users\ngkai\Documents\Arduino\libraries\FreeRTOS\src;C:\Users\ngkai\Documents\Arduino\libraries\FreeRTOS\src\utility;C:\Users\ngkai\Documents\Arduino\libraries\StandardCplusplus;C:\Users\ngkai\Documents\Arduino\libraries\StandardCplusplus\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\tstmghfk.f3x\Micro Platforms\default\debuggers;C:\Users\ngkai\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\tools\avr/avr/include/;C:\Program Files (x86)\Arduino\hardware\tools\avr//avr/include/avr/;C:\Program Files (x86)\Arduino\hardware\tools\avr/lib\gcc\avr\4.8.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>c:\Users\ngkai\documents\visual studio 2015\Projects\Sketch2\main\__vm\.main.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-      <PreprocessorDefinitions>__AVR_ATmega2560__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10606;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__AVR_ATmega2560__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10608;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -77,20 +77,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommunicationThreadDispatcher.h" />
-    <ClInclude Include="ErrorParser.h" />
-    <ClInclude Include="FreeRTOS.h" />
+    <ClInclude Include="EventRaiser.h" />
+    <ClInclude Include="RTOSSetting.h" />
     <ClInclude Include="GlobalContext.h" />
     <ClInclude Include="IDispatcher.h" />
-    <ClInclude Include="IPacketProtocol.h" />
     <ClInclude Include="PacketModule.h" />
     <ClInclude Include="ScopedLock.h" />
     <ClInclude Include="__vm\.main.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CommunicationThreadDispatcher.cpp" />
-    <ClCompile Include="ErrorParser.cpp" />
+    <ClCompile Include="EventRaiser.cpp" />
     <ClCompile Include="GlobalContext.cpp" />
-    <ClCompile Include="IPacketProtocol.cpp" />
     <ClCompile Include="PacketModule.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

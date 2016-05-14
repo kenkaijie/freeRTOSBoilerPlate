@@ -9,13 +9,17 @@
 	#include "WProgram.h"
 #endif
 
-#include "FreeRTOS.h"
+#include "RTOSSetting.h"
 #include <queue.h>
 #include <semphr.h>
 #include "ScopedLock.h"
 
 #include "IDispatcher.h"
 
+namespace Device
+{
+namespace System
+{
 class GlobalContext;
 
 typedef GlobalContext* GlobalContextPtr;
@@ -34,17 +38,16 @@ class CommunicationThreadDispatcher: public IDispatcher
         m_mutex = xSemaphoreCreateMutex();
     }
 
-
     void Dispatch(QueuedFunctionPtr queuedFunction)
     {
-        ScopedLock lock(m_mutex);
+        Utils::ScopedLock lock(m_mutex);
         xQueueSendToBack(m_communicationQueue, &queuedFunction, (TickType_t)10);
 
     }
 
     void Execute(void)
     {
-        ScopedLock lock(m_mutex);
+		Utils::ScopedLock lock(m_mutex);
         struct QueuedFunction * queuedFunction;
         if (xQueueReceive(m_communicationQueue, &queuedFunction, (TickType_t)10) == pdTRUE)
         {
@@ -61,5 +64,7 @@ private:
 
 typedef CommunicationThreadDispatcher* CommunicationThreadDispatcherPtr;
 
+}
+}
 #endif
 

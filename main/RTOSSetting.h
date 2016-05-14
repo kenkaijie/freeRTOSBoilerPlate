@@ -30,8 +30,6 @@ extern "C" {
 	#define INCLUDE_pcTaskGetTaskName 1
 #endif
 
-
-
 #ifdef __cplusplus
 }
 #endif
